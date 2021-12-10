@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import CardDetail from '../components/CardDetail.vue'
+// import CardDetail from '../components/CardDetail.vue'
+import Articles from '../views/articles.vue'
 
 
 Vue.use(VueRouter)
@@ -12,10 +13,15 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  // {
+  //   path: '/carddetail',
+  //   name: 'carddetail',
+  //   component: CardDetail
+  // },
   {
-    path: '/',
-    name: 'carddetail',
-    component: CardDetail
+    path: '/article',
+    name: 'articles',
+    component: Articles
   },
   {
     path: '/about',
@@ -28,6 +34,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: "history",
   routes
 })
 

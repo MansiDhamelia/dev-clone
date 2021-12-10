@@ -1,11 +1,24 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-gradient-to-r min-h-full from-gray-300">
     <div id="nav">
-     
+     <Header/>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+import Header from "./components/Header.vue";
+
+
+export default {
+  components: {
+    Header,
+  
+  },
+};
+</script>
 
 <style>
 #app {
