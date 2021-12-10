@@ -12,7 +12,8 @@ export default new Vuex.Store({
     articles: [],
     tags:{
       tag: "",
-    }
+    },
+    article: "",
   },
   getters: {
     allData: (state) => state.articles,
@@ -22,14 +23,27 @@ export default new Vuex.Store({
   mutations: {
     setArticles: (state, articles) => (state.articles = articles),
     setTag: (state, tag) => (state.tags = tag),
+    setArticle: (state, article) => (state.article = article),
   },
   actions: {
     async fetchData({ commit }) {
-      console.log("asa");
+    
       const response = await axios.get("https://dev.to/api/articles");
 
       commit("setArticles", response.data);
    
+    },
+
+    async fetchArticle({ commit }, id) {
+
+
+      console.log("dsd");
+      const response = await axios.get(
+        `https://dev.to/api/articles/${id}`
+      );
+      this.articles = response.data;
+    
+      commit("setArticle", response.data);
     },
 
     async fetchTag({commit, id}){

@@ -4,6 +4,7 @@
       <img
         src="../assets/logo.png"
         alt=""
+        @click="goTo"
         class="absolute inset-0 w-full h-full object-cover rounded-t-3xl"
       />
     </div>
@@ -49,3 +50,14 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    goTo() {
+      this.$router.push("/article").catch(() => {});
+    },
+  },
+};
+</script>

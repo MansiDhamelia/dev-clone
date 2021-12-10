@@ -4,12 +4,12 @@
       flex flex-col flex-wrap
       m-2
       w-1/4
-
       relative
       rounded-3xl
       shadow-md
+      hover:shadow-lg
     "
-  > 
+  >
     <div class="flex-none h-48 w-full relative">
       <img
         :src="data.social_image"
@@ -50,7 +50,6 @@
 
       <div class="flex flex-row justify-between">
         <div class="flex flex-row justify-items-start gap-2">
-
           <i class="fa fa-heart" style="font-size: 20px">
             {{ data.positive_reactions_count }}
           </i>
