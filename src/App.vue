@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-gradient-to-r min-h-full from-gray-300">
+  <div id="app" class="bg-gradient-to-r min-h-screen from-gray-300">
     <div id="nav">
      <Header/>
     </div>

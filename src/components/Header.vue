@@ -56,7 +56,7 @@
 export default {
   methods: {
     goTo() {
-      this.$router.push("/article").catch(() => {});
+      this.$router.push("/articles").catch(() => {});
     },
   },
 };

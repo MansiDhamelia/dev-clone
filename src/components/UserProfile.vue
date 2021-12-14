@@ -3,16 +3,20 @@
     <div class="flex flex-row">
       <div class="">
         <img
-          src="../assets/cloud.jpeg"
+          :src="user.profile_image"
           alt=""
           class="rounded-full mr-5 h-14 w-14 bg-red-100"
         />
       </div>
-      <div class="">
-        <h1 class="text-2xl font-medium tracking-tight">user name</h1>
-        <label> website url</label>
+      <div>
+        <h1 class="text-2xl font-medium tracking-tight">
+          {{ user.name }}
+        </h1>
+
+        <label> @{{ user.username }}</label>
       </div>
     </div>
+    <!-- v-if="userProfile.username" -->
 
     <div class="">
       <button
@@ -33,23 +37,28 @@
       >
         see profile
       </button>
-      <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
-        about
-      </p>
-      <p class="text-sm leading-6 text-left">
-        abcd DFJD JDFJDFJDJFJ kjfkdjfkdjfk kj oierolksdklAF l/jfkdi mf
-      </p>
 
-      <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
-        location
-      </p>
-      <p class="text-sm leading-6 text-left">India</p>
+      <div v-if="user.summary">
+        <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
+          about
+        </p>
+        <p class="text-sm leading-6 text-left">
+          {{ user.summary }}
+        </p>
+      </div>
+      <div v-if="user.location">
+        <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
+          location
+        </p>
+        <p class="text-sm leading-6 text-left">{{ user.location }}</p>
+      </div>
+      <div v-if="user.joined_at">
+        <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
+          joined
+        </p>
 
-      <p class="mb-1 uppercase font-medium text-xs text-gray-400 text-left">
-        joined
-      </p>
-
-      <p class="text-sm leading-6 text-left">join date</p>
+        <p class="text-sm leading-6 text-left">{{ user.joined_at }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -58,14 +67,33 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import axios from "axios";
+
 export default {
-  computed: mapGetters(["allData"]),
-  props: {
-    data: {
-      type: Object,
-      default: null,
+  computed: mapGetters(["article", "userProfile"]),
+
+  data() {
+    return {
+      username: this.$route.params.username,
+      user: ""
+    };
+  },
+  created() {
+    this.fetchUser(this.username);
+  
+  },
+  methods: {
+    // ...mapActions(["fetchUser"]),
+
+    async fetchUser(username) {
+      
+      const response = await axios.get(
+        `https://dev.to/api/users/by_username?url=${username}`
+      );
+      this.user = response.data;
+   
+     
     },
   },
-  methods: {},
 };
 </script>

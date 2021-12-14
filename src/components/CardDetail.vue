@@ -9,6 +9,7 @@
       shadow-md
       hover:shadow-lg
     "
+    @click="goTo(data.id, data.user.username)"
   >
     <div class="flex-none h-48 w-full relative">
       <img
@@ -71,6 +72,7 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
   computed: mapGetters(["allData"]),
+
   props: {
     data: {
       type: Object,
@@ -78,10 +80,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["fetchData"]),
-  },
-  created() {
-    // this.fetchData();
+    ...mapActions(["fetchArticle"]),
+
+    goTo(id, username) {
+
+      this.$router.push(`/articledetails/${username}/${id}`).catch(() => {});
+    },
   },
 };
 </script>
