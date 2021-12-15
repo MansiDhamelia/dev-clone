@@ -34,9 +34,9 @@ export default {
       console.log("newdata: ", response.data);
       this.articles = this.articles.concat(response.data);
     },
-     lazyLoadArticles(isVisible) {
+    lazyLoadArticles(isVisible) {
       if (isVisible) {
-        if (this.currentPage > 5) {
+        if (this.currentPage < 5) {
           this.currentPage++;
           this.new();
         }
@@ -45,6 +45,7 @@ export default {
   },
   created() {
     this.new();
+    this.lazyLoadArticles();
   },
 };
 </script>

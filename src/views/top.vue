@@ -30,12 +30,12 @@ export default {
       const response = await axios.get(
         `https://dev.to/api/articles?tag=nuxt&top=365&page=${this.currentPage}`
       );
-      // console.log("topdata", response.data);
+    
       this.articles = this.articles.concat(response.data);
     },
     lazyLoadArticles(isVisible) {
       if (isVisible) {
-        if (this.currentPage > 5) {
+        if (this.currentPage < 5) {
           this.currentPage++;
           this.getTop();
         }
@@ -44,6 +44,7 @@ export default {
   },
   created() {
     this.getTop();
+    this.lazyLoadArticles();
   },
 };
 </script>
