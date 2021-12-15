@@ -34,7 +34,6 @@ export default new Vuex.Store({
     async fetchArticle({ commit }, id) {
       const response = await axios.get(`https://dev.to/api/articles/${id}`);
       this.article = response.data;
-      // console.log(response.data);
       commit("setArticle", response.data);
     },
 

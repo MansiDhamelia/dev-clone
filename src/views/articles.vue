@@ -4,6 +4,7 @@
   </div>
 </template>
 
+
 <script>
 import CardDetail from "../components/CardDetail";
 import { mapActions, mapGetters } from "vuex";

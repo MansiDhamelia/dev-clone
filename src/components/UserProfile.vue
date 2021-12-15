@@ -63,8 +63,6 @@
   </div>
 </template>
 
-
-
 <script>
 import { mapActions, mapGetters } from "vuex";
 import axios from "axios";
@@ -75,24 +73,18 @@ export default {
   data() {
     return {
       username: this.$route.params.username,
-      user: ""
+      user: "",
     };
   },
   created() {
     this.fetchUser(this.username);
-  
   },
   methods: {
-    // ...mapActions(["fetchUser"]),
-
     async fetchUser(username) {
-      
       const response = await axios.get(
         `https://dev.to/api/users/by_username?url=${username}`
       );
       this.user = response.data;
-   
-     
     },
   },
 };

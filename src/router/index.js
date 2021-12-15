@@ -3,14 +3,16 @@ import VueRouter from "vue-router";
 import Articles from "../views/articles.vue";
 import ArticleDetails from "../views/articleDetails.vue";
 import Header from "../components/Header.vue";
+import Top from "../views/top.vue";
+import New from "../views/new.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "header",
-    component: Header,
+    name: "articles",
+    component: Articles,
   },
   {
     path: "/home",
@@ -27,6 +29,16 @@ const routes = [
     name: "articles",
     component: Articles,
   },
+  {
+    path: "/top",
+    name: "top",
+    component: Top,
+  },
+  {
+    path: "/new",
+    name: "new",
+    component: New,
+  }
 ];
 const router = new VueRouter({
   mode: "history",

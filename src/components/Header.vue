@@ -24,7 +24,9 @@
           rounded-lg
           bg-gradient-to-r
           hover:from-gray-200
+          active:shadow-inner
         "
+        @click="newData"
       >
         NEW
       </button>
@@ -43,7 +45,9 @@
           rounded-lg
           bg-gradient-to-r
           hover:from-gray-200
+          active:bg-red-200
         "
+        @click="top"
       >
         TOP
       </button>
@@ -57,6 +61,12 @@ export default {
   methods: {
     goTo() {
       this.$router.push("/articles").catch(() => {});
+    },
+    top() {
+      this.$router.push("/top").catch(() => {});
+    },
+    newData() {
+      this.$router.push("/new").catch(() => {});
     },
   },
 };
