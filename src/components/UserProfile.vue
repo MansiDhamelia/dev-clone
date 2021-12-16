@@ -33,6 +33,8 @@
           bg-gradient-to-r
           drop-shadow-xl
           bg-gray-300
+          hover:shadow-lg hover:border-transparent
+             hover:from-gray-200
         "
         @click="profile(user.username)"
       >

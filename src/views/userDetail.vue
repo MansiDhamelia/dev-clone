@@ -44,15 +44,19 @@
             tracking-tight
             mb-4
             shadow-lg
+            bg-gradient-to-r
+             bg-gray-300
+            hover:shadow-lg hover:border-transparent hover:from-gray-200
           "
           >Follow
         </a>
-        <div  v-if="user.summary"  class="mb-4 leading-1.4 text-xl text-left">{{ user.summary }}</div>
+        <div v-if="user.summary" class="mb-4 leading-1.4 text-xl text-left">
+          {{ user.summary }}
+        </div>
         <div class="flex m-2 text-2xl gap-4">
           <!-- <a href="" class="m-2 cursor-pointer"></a> -->
           <i v-if="user.twitter_username" class="fa fa-twitter"></i>
-           <i v-if="user.github_username" class="fa fa-github"></i>
-           
+          <i v-if="user.github_username" class="fa fa-github"></i>
         </div>
       </div>
       <div class="w-1/4">
