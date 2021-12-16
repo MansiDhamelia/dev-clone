@@ -5,7 +5,7 @@
         <img
           :src="user.profile_image"
           alt=""
-          class="rounded-full mr-5 h-14 w-14 bg-red-100"
+          class="rounded-full mr-5 h-14 w-14"
         />
       </div>
       <div>
@@ -34,6 +34,7 @@
           drop-shadow-xl
           bg-gray-300
         "
+        @click="profile(user.username)"
       >
         see profile
       </button>
@@ -85,6 +86,10 @@ export default {
         `https://dev.to/api/users/by_username?url=${username}`
       );
       this.user = response.data;
+      console.log("user", this.user);
+    },
+    profile(username) {
+      this.$router.push(`/${username}`).catch(() => {});
     },
   },
 };

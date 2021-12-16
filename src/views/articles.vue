@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-1 justify-center">
+  <div class="flex flex-wrap gap-1 items-start justify-center">
     <CardDetail
       v-for="(article, i) in allData"
       :key="article.id"

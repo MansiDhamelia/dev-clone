@@ -3,7 +3,7 @@
     class="
       flex flex-col flex-wrap
       m-2
-      w-1/4
+      w-4/12
       relative
       rounded-3xl
       shadow-md
@@ -11,7 +11,7 @@
     "
     @click="goTo(data.id, data.user.username)"
   >
-    <div class="flex-none h-48 w-full relative">
+    <div class="flex-none h-56 w-full relative">
       <img
         :src="data.social_image"
         alt="data.title"
@@ -83,7 +83,6 @@ export default {
     ...mapActions(["fetchArticle"]),
 
     goTo(id, username) {
-
       this.$router.push(`/articledetails/${username}/${id}`).catch(() => {});
     },
   },

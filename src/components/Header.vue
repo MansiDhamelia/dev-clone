@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row m-auto px-4 justify-between">
+  <div class="flex flex-row m-auto px-6 justify-between">
     <div class="flex-none h-14 w-14 relative">
       <img
         src="../assets/logo.png"
@@ -63,10 +63,10 @@ export default {
       this.$router.push("/articles").catch(() => {});
     },
     top() {
-      this.$router.push("/top").catch(() => {});
+      this.$router.push("/articles/top").catch(() => {});
     },
     newData() {
-      this.$router.push("/new").catch(() => {});
+      this.$router.push("/articles/new").catch(() => {});
     },
   },
 };
